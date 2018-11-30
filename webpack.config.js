@@ -1,30 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const glob = require('glob');
 
 // Loaders handle certain extensions and apply transforms
 function setupRules(env) {
-  const rules = [];
-
-  if (env.prod) {
-    // TODO: If we want to add babel, uncomment this. Maybe add an IE flag to CME
-    // Babelify all .js files for prod builds (except external modules)
-    // rules.push({
-    //   test: /\.js$/,
-    //   exclude: /(node_modules|bower_components)/,
-    //   use: [
-    //     {
-    //       loader: 'babel-loader',
-    //       options: {
-    //         presets: ['env']
-    //       }
-    //     }
-    //   ]
-    // });
-  }
-
+  const rules = [{
+    test: /\.wasm$/,
+    type: "webassembly/experimental"
+  }];
   return rules;
 }
 
@@ -93,16 +78,6 @@ function setupPlugins(env) {
     plugins.push(new HTMLWebpackPlugin({ filename: 'browser.html', title: 'BitGo SDK Sandbox' }));
   }
 
-  if (env.prod) {
-    // Minimize output files in production
-    plugins.push(new UglifyJSPlugin({
-      uglifyOptions: {
-        mangle: false
-      }
-    }));
-  }
-
-
   return plugins;
 }
 
@@ -138,6 +113,7 @@ module.exports = function setupWebpack(env) {
 
   // Compile source code
   return {
+    mode: env.prod ? 'production' : 'development',
     // Main project entry point
     entry: path.join(__dirname, 'src', 'index.js'),
 
@@ -158,6 +134,22 @@ module.exports = function setupWebpack(env) {
 
     // Any extra processing
     plugins: setupPlugins(env),
+
+    resolve: {
+      extensions: [ '.js', '.wasm' ]
+    },
+
+    optimization: {
+      minimizer: [new TerserPlugin({
+        terserOptions: {
+          ecma: 6,
+          warnings: true,
+          mangle: false,
+          keep_classnames: true,
+          keep_fnames: true,
+        }
+      })]
+    },
 
     // Create a source map for the bundled code (dev and test only)
     devtool: !env.prod && 'cheap-eval-source-map'
