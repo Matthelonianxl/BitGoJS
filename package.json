@@ -52,7 +52,7 @@
     "http-proxy": "1.11.1",
     "lodash": "~4.17.10",
     "minimist": "0.2.0",
-    "moment": "~2.20.1",
+    "moment": "~2.24.0",
     "morgan": "^1.9.1",
     "prova-lib": "0.2.9",
     "ripple-lib": "~0.22.0",
