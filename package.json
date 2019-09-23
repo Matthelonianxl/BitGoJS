@@ -45,7 +45,7 @@
     "bs58check": "1.0.4",
     "cashaddress": "1.1.0",
     "create-hmac": "~1.1.4",
-    "debug": "~3.1.0",
+    "debug": "~3.2.6",
     "ecurve": "~1.0.2",
     "eol": "0.5.0",
     "express": "~4.16.2",
