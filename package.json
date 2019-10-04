@@ -29,7 +29,9 @@
     "test-browser": "npm run compile-test && ./node_modules/karma/bin/karma start .karma.conf.js --log-level debug --single-run",
     "test-integration": "./node_modules/.bin/_mocha --timeout 20000 --reporter list --recursive test/integration/ test/v2/integration/",
     "lint": "./node_modules/.bin/eslint --ext .js .",
-    "audit": "if [ \"$(npm --version | cut -d. -f1)\" -ge \"6\" ]; then npm audit; else echo \"npm >= 6 required to perform audit. skipping...\"; fi"
+    "audit": "if [ \"$(npm --version | cut -d. -f1)\" -ge \"6\" ]; then npm audit; else echo \"npm >= 6 required to perform audit. skipping...\"; fi",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "argparse": "~1.0.10",
@@ -60,7 +62,8 @@
     "secrets.js-grempe": "1.1.0",
     "stellar-sdk": "~0.11.0",
     "superagent": "~3.8.3",
-    "superagent-proxy": "~1.0.0"
+    "superagent-proxy": "~1.0.0",
+    "snyk": "^1.230.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -115,5 +118,6 @@
       "test/*.js",
       "test/bitcoin/*.js"
     ]
-  }
+  },
+  "snyk": true
 }
