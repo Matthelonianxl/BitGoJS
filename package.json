@@ -50,7 +50,7 @@
     "eol": "0.5.0",
     "express": "~4.16.2",
     "http-proxy": "1.11.1",
-    "lodash": "~4.17.10",
+    "lodash": "~4.17.21",
     "minimist": "0.2.0",
     "moment": "~2.20.1",
     "morgan": "^1.9.1",
@@ -58,7 +58,7 @@
     "ripple-lib": "~0.22.0",
     "sanitize-html": "1.13.0",
     "secrets.js-grempe": "1.1.0",
-    "stellar-sdk": "~0.11.0",
+    "stellar-sdk": "~0.14.0",
     "superagent": "~3.8.3",
     "superagent-proxy": "~1.0.0"
   },
