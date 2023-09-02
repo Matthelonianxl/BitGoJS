@@ -40,7 +40,7 @@
     "@bitgo/blake2b": "^3.0.1",
     "@bitgo/bls": "^0.1.0",
     "@bitgo/statics": "^6.15.0",
-    "@celo/contractkit": "^1.2.4",
+    "@celo/contractkit": "^4.1.1",
     "@ethereumjs/common": "^2.4.0",
     "@ethereumjs/tx": "^3.3.0",
     "@hashgraph/sdk": "~2.3.0",
