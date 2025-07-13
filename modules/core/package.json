@@ -46,7 +46,7 @@
     "gen-docs": "typedoc"
   },
   "dependencies": {
-    "@bitgo/account-lib": "^2.17.1",
+    "@bitgo/account-lib": "^27.0.0",
     "@bitgo/statics": "^6.15.0",
     "@bitgo/unspents": "^0.7.1",
     "@bitgo/utxo-lib": "^2.2.0",
@@ -61,7 +61,7 @@
     "bitcoinjs-message": "^2.0.0",
     "bluebird": "^3.5.3",
     "bs58": "^2.0.1",
-    "bs58check": "^1.0.4",
+    "bs58check": "^2.0.0",
     "cashaddress": "^1.1.0",
     "debug": "^3.1.0",
     "ecurve": "^1.0.6",
@@ -74,7 +74,7 @@
     "ripple-binary-codec": "~0.2.4",
     "ripple-keypairs": "^0.11.0",
     "ripple-lib": "~1.4.1",
-    "sanitize-html": "^1.27.5",
+    "sanitize-html": "^2.0.0",
     "secp256k1": "^4.0.2",
     "secrets.js-grempe": "^1.1.0",
     "stellar-sdk": "^9.0.1",
